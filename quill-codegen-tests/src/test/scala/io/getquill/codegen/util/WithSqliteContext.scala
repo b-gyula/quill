@@ -28,8 +28,12 @@ trait WithSqliteContext extends WithContextAux {
       override protected def makeContext(ds: DataSource with Closeable) = new QuillContext(SnakeCase, ds)
     }
 
-  implicit def sqliteContextForTest2: Aux[TheDB, `2-comp-stereo-single`, TheContext[SnakeCase]
-    with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]] =
+  implicit def sqliteContextForTest2: Aux[
+    TheDB,
+    `2-comp-stereo-single`,
+    TheContext[SnakeCase]
+      with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]
+  ] =
     new WithContextBase[TheDB, `2-comp-stereo-single`](TheDB, `2-comp-stereo-single`) {
       override type QuillContext = TheContext[SnakeCase]
         with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]
