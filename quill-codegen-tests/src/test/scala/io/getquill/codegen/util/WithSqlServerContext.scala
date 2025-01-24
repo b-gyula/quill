@@ -28,8 +28,12 @@ trait WithSqlServerContext extends WithContextAux {
       override protected def makeContext(ds: DataSource with Closeable) = new QuillContext(SnakeCase, ds)
     }
 
-  implicit def sqlServerContextForTest2: Aux[TheDB, `2-comp-stereo-single`, TheContext[SnakeCase]
-    with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]] =
+  implicit def sqlServerContextForTest2: Aux[
+    TheDB,
+    `2-comp-stereo-single`,
+    TheContext[SnakeCase]
+      with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]
+  ] =
     new WithContextBase[TheDB, `2-comp-stereo-single`](TheDB, `2-comp-stereo-single`) {
       override type QuillContext = TheContext[SnakeCase]
         with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]
@@ -37,8 +41,12 @@ trait WithSqlServerContext extends WithContextAux {
         with `2-comp-stereo-single-lib`.public.PublicExtensions[TheDialect, SnakeCase]
     }
 
-  implicit def sqlServerContextForTest3: Aux[TheDB, `3-comp-stereo-oneschema`, TheContext[Literal]
-    with `3-comp-stereo-oneschema-lib`.public.PublicExtensions[TheDialect, Literal]] =
+  implicit def sqlServerContextForTest3: Aux[
+    TheDB,
+    `3-comp-stereo-oneschema`,
+    TheContext[Literal]
+      with `3-comp-stereo-oneschema-lib`.public.PublicExtensions[TheDialect, Literal]
+  ] =
     new WithContextBase[TheDB, `3-comp-stereo-oneschema`](TheDB, `3-comp-stereo-oneschema`) {
       override type QuillContext = TheContext[Literal]
         with `3-comp-stereo-oneschema-lib`.public.PublicExtensions[TheDialect, Literal]
