@@ -601,7 +601,7 @@ val scala_v_12 = "2.12.19"
 val scala_v_13 = "2.13.14"
 val scala_v_30 = "3.3.3"
 
-val scalaCollectionCompatVersion = "2.12.0"
+val scalaCollectionCompatVersion = "2.13.0"
 
 lazy val loggingSettings = Seq(
   libraryDependencies ++= Seq(
